@@ -21,6 +21,14 @@ export const AuthProvider = ({ children }) => {
 
   const ALLOWED_DOMAIN = 'sastra.ac.in';
 
+  // Get current origin for redirect URI
+  const getCurrentOrigin = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return 'http://localhost:3000'; // fallback
+  };
+
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -48,6 +56,8 @@ export const AuthProvider = ({ children }) => {
           callback: handleGoogleResponse,
           hosted_domain: ALLOWED_DOMAIN,
           auto_select: false,
+          ux_mode: 'popup',
+          redirect_uri: getCurrentOrigin(),
         });
         resolve();
       } else {
@@ -61,7 +71,13 @@ export const AuthProvider = ({ children }) => {
             callback: handleGoogleResponse,
             hosted_domain: ALLOWED_DOMAIN,
             auto_select: false,
+            ux_mode: 'popup',
+            redirect_uri: getCurrentOrigin(),
           });
+          resolve();
+        };
+        script.onerror = () => {
+          console.error('Failed to load Google Identity Services');
           resolve();
         };
         document.head.appendChild(script);
@@ -114,9 +130,15 @@ export const AuthProvider = ({ children }) => {
   const signInWithGoogle = async () => {
     try {
       await initializeGoogleAuth();
+      
+      // Force account selection
       window.google.accounts.id.prompt({
-        prompt_parent_id: 'google-signin-button',
-        prompt: 'select_account',
+        moment_callback: (notification) => {
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            // Fallback to manual sign-in if prompt fails
+            console.log('Prompt not displayed, using manual sign-in');
+          }
+        }
       });
     } catch (error) {
       console.error('Sign in error:', error);
@@ -126,15 +148,20 @@ export const AuthProvider = ({ children }) => {
   const signInWithPopup = async () => {
     try {
       await initializeGoogleAuth();
-      window.google.accounts.id.renderButton(
-        document.getElementById('google-signin-button'),
-        {
+      
+      // Clear any existing button
+      const buttonContainer = document.getElementById('google-signin-button');
+      if (buttonContainer) {
+        buttonContainer.innerHTML = '';
+        
+        window.google.accounts.id.renderButton(buttonContainer, {
           theme: 'outline',
           size: 'large',
           text: 'signin_with',
           shape: 'rectangular',
-        }
-      );
+          width: '300',
+        });
+      }
     } catch (error) {
       console.error('Popup sign in error:', error);
     }
