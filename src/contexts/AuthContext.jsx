@@ -43,19 +43,11 @@ export const AuthProvider = ({ children }) => {
   const initializeGoogleAuth = () => {
     return new Promise((resolve) => {
       if (window.google) {
-        // Get current origin for redirect URI
-        const currentOrigin = window.location.origin;
-        
         window.google.accounts.id.initialize({
           client_id: GOOGLE_CLIENT_ID,
           callback: handleGoogleResponse,
           hosted_domain: ALLOWED_DOMAIN,
           auto_select: false,
-          // Use current origin as redirect URI
-          redirect_uri: currentOrigin,
-          // Add additional configuration for Bolt compatibility
-          ux_mode: 'popup',
-          context: 'signin'
         });
         resolve();
       } else {
@@ -64,16 +56,11 @@ export const AuthProvider = ({ children }) => {
         script.async = true;
         script.defer = true;
         script.onload = () => {
-          const currentOrigin = window.location.origin;
-          
           window.google.accounts.id.initialize({
             client_id: GOOGLE_CLIENT_ID,
             callback: handleGoogleResponse,
             hosted_domain: ALLOWED_DOMAIN,
             auto_select: false,
-            redirect_uri: currentOrigin,
-            ux_mode: 'popup',
-            context: 'signin'
           });
           resolve();
         };
@@ -127,34 +114,18 @@ export const AuthProvider = ({ children }) => {
   const signInWithGoogle = async () => {
     try {
       await initializeGoogleAuth();
-      
-      // Use popup mode for better compatibility with Bolt
       window.google.accounts.id.prompt({
-        moment_callback: (notification) => {
-          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-            // Fallback to manual button click
-            console.log('One Tap not displayed, using button fallback');
-          }
-        }
+        prompt_parent_id: 'google-signin-button',
+        prompt: 'select_account',
       });
     } catch (error) {
       console.error('Sign in error:', error);
-      // Show user-friendly error message
-      alert('Sign in failed. Please try again or contact support if the issue persists.');
     }
   };
 
   const signInWithPopup = async () => {
     try {
       await initializeGoogleAuth();
-      
-      // Clear any existing button first
-      const buttonContainer = document.getElementById('google-signin-button');
-      if (buttonContainer) {
-        buttonContainer.innerHTML = '';
-      }
-      
-      // Render the Google Sign-In button
       window.google.accounts.id.renderButton(
         document.getElementById('google-signin-button'),
         {
@@ -162,21 +133,10 @@ export const AuthProvider = ({ children }) => {
           size: 'large',
           text: 'signin_with',
           shape: 'rectangular',
-          width: '100%'
         }
       );
     } catch (error) {
       console.error('Popup sign in error:', error);
-      // Show fallback message
-      const buttonContainer = document.getElementById('google-signin-button');
-      if (buttonContainer) {
-        buttonContainer.innerHTML = `
-          <div class="text-center p-4 text-red-600">
-            <p>Google Sign-In temporarily unavailable.</p>
-            <p class="text-sm mt-2">Please try refreshing the page or contact support.</p>
-          </div>
-        `;
-      }
     }
   };
 
