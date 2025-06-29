@@ -30,7 +30,7 @@ const Home = () => {
     },
     {
       icon: BookOpen,
-      title: "Digital Library",
+      title: "Digital Library", 
       description: "Extensive collection of textbooks and references",
       color: "bg-gradient-to-br from-green-500 to-green-600",
       stats: "200+ Books"
@@ -90,7 +90,7 @@ const Home = () => {
       rating: 5
     },
     {
-      name: "Rahul Kumar",
+      name: "Rahul Kumar", 
       department: "ECE",
       text: "The organized structure and quality of materials here is exceptional. Highly recommended!",
       rating: 5
@@ -121,18 +121,6 @@ const Home = () => {
       transition: {
         duration: 0.6,
         ease: "easeOut"
-      }
-    }
-  }
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      rotate: [0, 5, -5, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
       }
     }
   }
@@ -242,11 +230,6 @@ const Home = () => {
                     Get Started
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Get Started
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  </span>
                 </Link>
                 
                 <a
@@ -290,8 +273,15 @@ const Home = () => {
             >
               <div className="relative">
                 <motion.div
-                  variants={floatingVariants}
-                  animate="animate"
+                  animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                   className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20"
                 >
                   <div className="grid grid-cols-2 gap-6">
@@ -521,13 +511,13 @@ const Home = () => {
                 className="bg-gray-50 dark:bg-gray-700 rounded-2xl p-8 hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
+                  {Array.from({ length: testimonial.rating }, (_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
                 
                 <div className="flex items-center">
@@ -588,10 +578,6 @@ const Home = () => {
                 className="group relative overflow-hidden bg-white text-blue-600 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <span className="relative z-10">Start Learning Now</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Start Learning Now
-                </span>
               </Link>
               
               <a
