@@ -1,0 +1,312 @@
+*{
+    margin: auto;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.top-header {
+    background-color:#B9F3E4;
+    height: auto;
+    min-width: 100%;
+}
+@media only screen and (max-width: 768px) {
+    .top-header {
+        padding-bottom: 30px;
+    }
+}
+header {
+    min-width: 100vw;
+    background-color: transparent;
+}
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 100px;
+
+}
+.logo {
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.logo-img {
+    height: 90px;
+}
+.nav-list
+{
+    list-style-type:none;
+}
+.nav-list-m
+{
+    list-style-type:none;
+}
+.nav-list-m li a
+{
+    text-decoration: none;
+}
+.nav-list li
+{
+    display: inline-block;
+    margin: 0 25px;
+}
+.nav-list li a
+{
+    text-decoration: none;
+    color: rebeccapurple;
+    font-weight: 600;
+    font-size: 18px;
+    transition: 0.4s ease-in-out;
+}
+.nav-list li a :hover
+{
+    color: black;
+}
+.btn-sr
+{
+    background-color: palevioletred !important;
+    padding: 10px 25px;
+    border-radius: 30px;
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.btn-sr:hover
+{
+    background-color: burlywood;
+
+}
+/* .hero-box
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 10px;
+}
+.left-box
+{
+    margin-left: 40px;
+    padding: 50px 0;
+} */
+.hero-section
+{
+    width: 100%;
+    background-color: #B9F3E4;
+    height: 500px;
+}
+.hero-box {
+    padding: 50px;
+}
+.left-box {
+    width: 50%;
+    float: left;
+}
+.right-box {
+    width: 40%;
+    float: right;
+    margin-left: 20px;
+}
+.nav-list-m {
+    display: none;
+}
+.nav-list-m li {
+    margin-top: 10px;
+}
+@media only screen and (max-width: 768px) {
+    .logo img {
+        width: 200%;
+        margin-left: -50px;
+    }
+    .nav-list {
+        display: none;
+    }
+    .hero-section {
+        height: 600px;
+    }
+    .hero-box {
+        padding: 20px;
+    }
+    .left-box {
+        width: 100%;
+    }
+    .right-box {
+        margin-top: 50px;
+        width: 100%;
+    }
+    .nav-list-m {
+        display: block;
+    }
+}
+.started
+{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 19px;
+}
+.ready
+{
+    color: blueviolet;
+    margin-bottom: 8px;
+    font-weight: 550;
+}
+.left-box h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+    line-height: 44px;
+}
+span {
+    color: papayawhip;
+
+}
+.left-par {
+    margin-bottom: 30px;
+}
+.right-img {
+    width: 80%;
+    border-radius: 20px;
+}
+/* .feature {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    height:50vh;
+    background-color: white;
+    align-items: center;
+    justify-content: space-around;
+} */
+/* .boxes
+{
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+} */
+.feature {
+    width: 100%;
+    padding: 20px 40px;
+}
+.boxes {
+    padding: 20px 40px;
+    width: 25%;
+    float: left;
+    border-radius: 6px;
+    transition: .3s ease-in-out;
+    margin-right: 0px;
+    text-align: center;
+}
+.boxes:hover {
+    box-shadow: 0px 5px 15px black;
+    cursor: pointer;
+}
+.boxes a {
+    
+    text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+    .boxes {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+.boxes h2
+{
+    font-size: 18px;
+    color: violet;
+    margin:5px o;
+}
+.boxes p
+{
+    color: black;
+}
+.al-shadow
+{
+    box-shadow: 0px 5px 15px whitesmoke;
+}
+.whatsapp-logo {
+    z-index: 100;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+.news-app-promo {
+    box-sizing: border-box;
+    background-color: #000;
+    padding: 0.5em;
+    margin-top: 1em;
+  }
+  
+  .news-app-promo__section {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .news-app-promo-text {
+    color: #fff;
+    font-family: helvetica;
+    min-width: 277px;
+    border-right: 0.25em solid #fff;
+    border-left: 0.25em solid #fff;
+    padding: 0 1em;
+    width: 35%;
+    margin: 1em auto;
+    display: block;
+  }
+  
+  .news-app-promo-text__tagline {
+    font-size: 1.09em;
+  }
+  
+  .news-app-promo-text__download {
+    font-size: 2.25em;
+    font-weight: 600;
+  }
+  
+  .news-app-promo-buttons {
+    margin: 0 auto;
+    max-width: 35%;
+    display: block;
+  }
+  
+  .news-app-promo-buttons__buttons {
+    display: block;
+  }
+  
+  .news-app-promo-buttons__logo {
+    display: inline-block;
+  }
+  
+  .news-app-promo-subsection {
+    display: inline-block;
+    margin: 0 auto;
+    margin-right: 10px;
+  }
+  
+  .news-app-promo__bbc-logo {
+    display: inline-block;
+    width: 106px;
+    margin-bottom: 8px;
+  }
+  
+  .news-app-promo__play-store,
+  .news-app-promo__app-store {
+    display: block;
+    width: 161px;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  
+  .news-app-promo-subsection--link {
+    text-decoration: none;
+    border: 0;
+  }
