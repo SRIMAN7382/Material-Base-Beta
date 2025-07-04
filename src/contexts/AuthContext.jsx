@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const GOOGLE_CLIENT_ID =
     import.meta.env.VITE_GOOGLE_CLIENT_ID ||
-    '232829986455-td4dq4a6c6ai93g96jupulk0ae2bni7d.apps.googleusercontent.com';
+    '232829986455-fediihgklmi1d27lki2obhq8gqmm47n8.apps.googleusercontent.com';
 
   const ALLOWED_DOMAIN = 'sastra.ac.in';
 
