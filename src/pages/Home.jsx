@@ -114,83 +114,11 @@ const Home = () => {
     }
   ]
 
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Save Time",
-      description: "Everything in one place - no more searching through multiple sources",
-      color: "text-blue-500",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20"
-    },
-    {
-      icon: Shield,
-      title: "Verified Content",
-      description: "Materials sourced from faculty and verified by students",
-      color: "text-green-500",
-      bgColor: "bg-green-50 dark:bg-green-900/20"
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Friendly",
-      description: "Perfect experience on all devices with responsive design",
-      color: "text-purple-500",
-      bgColor: "bg-purple-50 dark:bg-purple-900/20"
-    },
-    {
-      icon: Wifi,
-      title: "Always Available",
-      description: "24/7 access to all your academic resources and tools",
-      color: "text-red-500",
-      bgColor: "bg-red-50 dark:bg-red-900/20"
-    },
-    {
-      icon: Compass,
-      title: "Easy Navigation",
-      description: "Intuitive organization makes finding materials effortless",
-      color: "text-yellow-500",
-      bgColor: "bg-yellow-50 dark:bg-yellow-900/20"
-    },
-    {
-      icon: TrendingUp,
-      title: "Track Progress",
-      description: "Monitor your academic performance with smart calculators",
-      color: "text-indigo-500",
-      bgColor: "bg-indigo-50 dark:bg-indigo-900/20"
-    }
-  ]
-
   const stats = [
     { icon: Users, label: "Active Students", value: "5000+", color: "text-blue-500" },
     { icon: BookOpen, label: "Study Materials", value: "1000+", color: "text-green-500" },
     { icon: Calculator, label: "Calculations Done", value: "50K+", color: "text-purple-500" },
-    { icon: Star, label: "User Rating", value: "4.8/5", color: "text-yellow-500" }
-  ]
-
-  const testimonials = [
-    {
-      name: "Priya S.",
-      department: "CSE",
-      year: "3rd Year",
-      text: "Material Base saved me hours of searching. The CGPA calculator helped me plan my entire academic strategy!",
-      rating: 5,
-      avatar: "👩‍💻"
-    },
-    {
-      name: "Arjun K.",
-      department: "ECE", 
-      year: "2nd Year",
-      text: "The external marks calculator is a game-changer. I know exactly what I need to score in finals!",
-      rating: 5,
-      avatar: "👨‍🔬"
-    },
-    {
-      name: "Meera R.",
-      department: "MECH",
-      year: "4th Year",
-      text: "Previous year papers section is incredibly helpful. The mobile app makes studying on-the-go so easy!",
-      rating: 5,
-      avatar: "👩‍🔧"
-    }
+    { icon: Download, label: "Downloads", value: "100K+", color: "text-yellow-500" }
   ]
 
   const containerVariants = {
@@ -672,122 +600,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">
-              Why Choose Material Base?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Built with students in mind, designed for academic excellence
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon
-              return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="group"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className={`${benefit.bgColor} rounded-3xl p-8 h-full transition-all duration-300 group-hover:shadow-xl`}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                    >
-                      <Icon className={`w-8 h-8 ${benefit.color}`} />
-                    </motion.div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3 text-center">
-                      {benefit.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </motion.div>
-                </motion.div>
-              )
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">
-              What Students Say
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Real feedback from SASTRA students using Material Base
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl mr-4">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800 dark:text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">{testimonial.department} • {testimonial.year}</p>
-                  </div>
-                </div>
-                
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Mobile App Promotion Section */}
       <section className="py-20 bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -1050,8 +862,8 @@ const Home = () => {
                 <span className="text-sm">Made with Love</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Star className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm">Student Approved</span>
+                <Users className="w-5 h-5 text-green-400" />
+                <span className="text-sm">Student Community</span>
               </div>
             </motion.div>
           </motion.div>
