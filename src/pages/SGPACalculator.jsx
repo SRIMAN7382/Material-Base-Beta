@@ -11,27 +11,26 @@ const SGPACalculator = () => {
   const [totalGradePoints, setTotalGradePoints] = useState(0)
 
   const gradeScale = {
-    'O': 10,
+    'S': 10,
     'A+': 9,
     'A': 8,
-    'B+': 7,
-    'B': 6,
-    'C': 5,
-    'RA': 0,
-    'SA': 0,
-    'W': 0
+    'B': 7,
+    'C': 6,
+    'D': 5,
+    'E': 0,
+    'F': 0
   }
 
   const gradeDescriptions = {
-    'O': 'Outstanding (90-100%)',
-    'A+': 'Excellent (80-89%)',
-    'A': 'Very Good (70-79%)',
-    'B+': 'Good (60-69%)',
-    'B': 'Above Average (55-59%)',
-    'C': 'Average (50-54%)',
-    'RA': 'Re-appear',
-    'SA': 'Shortage of Attendance',
-    'W': 'Withdrawn'
+    'S': 'Outstanding (>=91%)',
+    'A+': 'Excellent (>=86% and <=90%)',
+    'A': 'Very Good (>=75% and <=85%)',
+    'B': 'Good (>=66% and <=74%)',
+    'C': 'Satisfactory (>=55% and <=65%)',
+    'D': 'Pass (>=50% and <=54%)',
+    'E': 'Absent',
+    'F': 'Fail (<50%)'
+
   }
 
   useEffect(() => {
