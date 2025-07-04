@@ -9,6 +9,8 @@ import Semesters from './pages/Semesters'
 import SemesterDetail from './pages/SemesterDetail'
 import Papers from './pages/Papers'
 import Calendar from './pages/Calendar'
+import SGPACalculator from './pages/SGPACalculator'
+import CGPACalculator from './pages/CGPACalculator'
 import Login from './pages/Login'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
@@ -77,6 +79,16 @@ function App() {
               <Route path="/calendar" element={
                 <ProtectedRoute>
                   <Calendar />
+                </ProtectedRoute>
+              } />
+              <Route path="/sgpa-calculator" element={
+                <ProtectedRoute>
+                  <SGPACalculator />
+                </ProtectedRoute>
+              } />
+              <Route path="/cgpa-calculator" element={
+                <ProtectedRoute>
+                  <CGPACalculator />
                 </ProtectedRoute>
               } />
             </Routes>

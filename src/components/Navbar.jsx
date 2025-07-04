@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun } from 'lucide-react'
+import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useAuth } from '../contexts/AuthContext'
 import UserProfile from './UserProfile'
@@ -28,8 +28,12 @@ const Navbar = () => {
     { name: 'Papers', path: '/papers', icon: FileText },
   ]
 
+  const calculatorItems = [
+    { name: 'SGPA Calculator', path: '/sgpa-calculator', icon: Calculator },
+    { name: 'CGPA Calculator', path: '/cgpa-calculator', icon: Target },
+  ]
+
   const utilityItems = [
-    { name: 'SGPA Calculator', url: 'https://unitastic.netlify.app/sgpa', icon: Calculator },
     { name: 'External Marks', url: 'https://unitastic.netlify.app/externals', icon: Calculator },
     { name: 'Attendance', url: 'https://unitastic.netlify.app/attendance', icon: Users },
   ]
@@ -77,13 +81,27 @@ const Navbar = () => {
               )
             })}
 
-            {/* Utilities Dropdown */}
+            {/* Calculators Dropdown */}
             <div className="relative group">
               <button className="flex items-center space-x-1 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200">
                 <Calculator className="w-4 h-4" />
-                <span>Utilities</span>
+                <span>Calculators</span>
               </button>
               <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {calculatorItems.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </Link>
+                  )
+                })}
+                <div className="border-t dark:border-gray-700 my-1"></div>
                 {utilityItems.map((item) => {
                   const Icon = item.icon
                   return (
@@ -92,7 +110,7 @@ const Navbar = () => {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
+                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
                     >
                       <Icon className="w-4 h-4" />
                       <span>{item.name}</span>
@@ -205,7 +223,23 @@ const Navbar = () => {
             })}
             
             <div className="pt-2 border-t border-gray-200 dark:border-gray-700 mx-2">
-              <p className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400">Utilities</p>
+              <p className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400">Calculators</p>
+              {calculatorItems.map((item) => {
+                const Icon = item.icon
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-2 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200"
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{item.name}</span>
+                  </Link>
+                )
+              })}
+              
+              <p className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Utilities</p>
               {utilityItems.map((item) => {
                 const Icon = item.icon
                 return (
