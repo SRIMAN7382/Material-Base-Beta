@@ -11,6 +11,7 @@ import Papers from './pages/Papers'
 import Calendar from './pages/Calendar'
 import SGPACalculator from './pages/SGPACalculator'
 import CGPACalculator from './pages/CGPACalculator'
+import ExternalMarksCalculator from './pages/ExternalMarksCalculator'
 import Login from './pages/Login'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
@@ -89,6 +90,11 @@ function App() {
               <Route path="/cgpa-calculator" element={
                 <ProtectedRoute>
                   <CGPACalculator />
+                </ProtectedRoute>
+              } />
+              <Route path="/external-marks-calculator" element={
+                <ProtectedRoute>
+                  <ExternalMarksCalculator />
                 </ProtectedRoute>
               } />
             </Routes>

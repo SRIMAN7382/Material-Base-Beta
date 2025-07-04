@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target } from 'lucide-react'
+import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useAuth } from '../contexts/AuthContext'
 import UserProfile from './UserProfile'
@@ -31,10 +31,10 @@ const Navbar = () => {
   const calculatorItems = [
     { name: 'SGPA Calculator', path: '/sgpa-calculator', icon: Calculator },
     { name: 'CGPA Calculator', path: '/cgpa-calculator', icon: Target },
+    { name: 'External Marks', path: '/external-marks-calculator', icon: Zap },
   ]
 
   const utilityItems = [
-    { name: 'External Marks', url: 'https://unitastic.netlify.app/externals', icon: Calculator },
     { name: 'Attendance', url: 'https://unitastic.netlify.app/attendance', icon: Users },
   ]
 
@@ -94,7 +94,7 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
+                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-t-lg transition-colors duration-200"
                     >
                       <Icon className="w-4 h-4" />
                       <span>{item.name}</span>
