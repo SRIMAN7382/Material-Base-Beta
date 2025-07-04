@@ -12,6 +12,7 @@ import Calendar from './pages/Calendar'
 import SGPACalculator from './pages/SGPACalculator'
 import CGPACalculator from './pages/CGPACalculator'
 import ExternalMarksCalculator from './pages/ExternalMarksCalculator'
+import AttendanceCalculator from './pages/AttendanceCalculator'
 import Login from './pages/Login'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
@@ -95,6 +96,11 @@ function App() {
               <Route path="/external-marks-calculator" element={
                 <ProtectedRoute>
                   <ExternalMarksCalculator />
+                </ProtectedRoute>
+              } />
+              <Route path="/attendance-calculator" element={
+                <ProtectedRoute>
+                  <AttendanceCalculator />
                 </ProtectedRoute>
               } />
             </Routes>

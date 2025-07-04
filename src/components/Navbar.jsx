@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap } from 'lucide-react'
+import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap, UserCheck } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useAuth } from '../contexts/AuthContext'
 import UserProfile from './UserProfile'
@@ -32,10 +32,11 @@ const Navbar = () => {
     { name: 'SGPA Calculator', path: '/sgpa-calculator', icon: Calculator },
     { name: 'CGPA Calculator', path: '/cgpa-calculator', icon: Target },
     { name: 'External Marks', path: '/external-marks-calculator', icon: Zap },
+    { name: 'Attendance', path: '/attendance-calculator', icon: UserCheck },
   ]
 
   const utilityItems = [
-    { name: 'Attendance', url: 'https://unitastic.netlify.app/attendance', icon: Users },
+    { name: 'Hall Plan', url: 'https://sas.sastra.edu/hallplan/', icon: Users },
   ]
 
   return (
@@ -146,14 +147,6 @@ const Navbar = () => {
                 >
                   Sign In
                 </Link>
-                <a
-                  href="https://sas.sastra.edu/hallplan/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Hall Plan
-                </a>
               </div>
             )}
           </div>
@@ -256,16 +249,6 @@ const Navbar = () => {
                 )
               })}
             </div>
-
-            <a
-              href="https://sas.sastra.edu/hallplan/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center btn-primary mt-4 mx-2"
-              style={{ width: 'calc(100% - 1rem)' }}
-            >
-              Hall Plan
-            </a>
           </div>
         </motion.div>
       </div>
