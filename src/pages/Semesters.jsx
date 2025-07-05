@@ -225,7 +225,7 @@ const Semesters = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {semesters.map((semester, index) => {
             const Component = semester.link ? 'a' : Link
@@ -323,7 +323,7 @@ const Semesters = () => {
                       </p>
                       
                       {/* Features */}
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2 mb-4 lg:mb-6">
                         <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span>Comprehensive notes</span>

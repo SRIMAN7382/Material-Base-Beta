@@ -168,23 +168,23 @@ const SGPACalculator = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/20 p-8"
+              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/20 p-4 lg:p-8"
             >
               <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2 lg:space-x-3">
                   <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                     <BookOpen className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+                  <h2 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-white">
                     Enter Your Subjects
                   </h2>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={addSubject}
-                    className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-all duration-200"
+                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-xl font-medium shadow-lg transition-all duration-200 text-sm lg:text-base"
                   >
                     <Plus className="w-4 h-4" />
                     <span>Add Subject</span>
@@ -193,7 +193,7 @@ const SGPACalculator = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={resetCalculator}
-                    className="flex items-center space-x-2 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-all duration-200"
+                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-xl font-medium shadow-lg transition-all duration-200 text-sm lg:text-base"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Reset</span>
@@ -202,7 +202,7 @@ const SGPACalculator = () => {
               </div>
 
               {/* Subject Headers */}
-              <div className="grid grid-cols-12 gap-4 mb-6 text-sm font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+              <div className="hidden lg:grid grid-cols-12 gap-4 mb-6 text-sm font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
                 <div className="col-span-4">Subject Name</div>
                 <div className="col-span-2">Credits</div>
                 <div className="col-span-3">Grade</div>
@@ -211,26 +211,28 @@ const SGPACalculator = () => {
               </div>
 
               {/* Subjects List */}
-              <div className="space-y-4 max-h-96 overflow-y-auto">
+              <div className="space-y-4 max-h-80 lg:max-h-96 overflow-y-auto">
                 {subjects.map((subject, index) => (
                   <motion.div
                     key={subject.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="grid grid-cols-12 gap-4 items-center p-6 bg-gradient-to-r from-white to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-600"
+                    className="lg:grid lg:grid-cols-12 lg:gap-4 lg:items-center p-4 lg:p-6 bg-gradient-to-r from-white to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-600 space-y-3 lg:space-y-0"
                   >
-                    <div className="col-span-4">
+                    <div className="lg:col-span-4">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 lg:hidden">Subject Name</label>
                       <input
                         type="text"
                         placeholder="e.g., Mathematics"
                         value={subject.name}
                         onChange={(e) => updateSubject(subject.id, 'name', e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200"
+                        className="w-full px-3 py-2 lg:px-4 lg:py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200 text-sm lg:text-base"
                       />
                     </div>
                     
-                    <div className="col-span-2">
+                    <div className="lg:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 lg:hidden">Credits</label>
                       <input
                         type="number"
                         placeholder="Credits"
@@ -239,15 +241,16 @@ const SGPACalculator = () => {
                         step="0.5"
                         value={subject.credits}
                         onChange={(e) => updateSubject(subject.id, 'credits', e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200"
+                        className="w-full px-3 py-2 lg:px-4 lg:py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200 text-sm lg:text-base"
                       />
                     </div>
                     
-                    <div className="col-span-3">
+                    <div className="lg:col-span-3">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 lg:hidden">Grade</label>
                       <select
                         value={subject.grade}
                         onChange={(e) => updateSubject(subject.id, 'grade', e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200"
+                        className="w-full px-3 py-2 lg:px-4 lg:py-3 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-800 dark:text-white transition-all duration-200 text-sm lg:text-base"
                       >
                         <option value="">Select Grade</option>
                         {Object.entries(gradeScale).map(([grade, points]) => (
@@ -258,13 +261,14 @@ const SGPACalculator = () => {
                       </select>
                     </div>
                     
-                    <div className="col-span-2">
-                      <div className="px-4 py-3 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-xl text-center font-bold text-gray-800 dark:text-white">
+                    <div className="lg:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 lg:hidden">Grade Points</label>
+                      <div className="px-3 py-2 lg:px-4 lg:py-3 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-xl text-center font-bold text-gray-800 dark:text-white text-sm lg:text-base">
                         {subject.gradePoint.toFixed(1)}
                       </div>
                     </div>
                     
-                    <div className="col-span-1">
+                    <div className="lg:col-span-1 flex justify-center lg:justify-start">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}

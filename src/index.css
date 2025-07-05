@@ -45,7 +45,7 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -54,11 +54,18 @@
 
 ::-webkit-scrollbar-thumb {
   background: #3498db;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2980b9;
+}
+
+/* Mobile scrollbar */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
 }
 
 /* Loading animation */
@@ -69,6 +76,14 @@
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
 }
 
 @keyframes spin {
