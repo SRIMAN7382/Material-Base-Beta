@@ -14,23 +14,23 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-primary hover:bg-blue-600 text-white font-medium py-2 px-4 sm:py-3 sm:px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm sm:text-base;
   }
   
   .btn-secondary {
-    @apply bg-secondary hover:bg-gray-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-secondary hover:bg-gray-700 text-white font-medium py-2 px-4 sm:py-3 sm:px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm sm:text-base;
   }
   
   .btn-success {
-    @apply bg-success hover:bg-green-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply bg-success hover:bg-green-600 text-white font-medium py-2 px-4 sm:py-3 sm:px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm sm:text-base;
   }
   
   .card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer;
+    @apply bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 cursor-pointer;
   }
   
   .card-content {
-    @apply p-6 text-center;
+    @apply p-4 sm:p-6 text-center;
   }
   
   .gradient-bg {
@@ -70,19 +70,19 @@
 
 /* Loading animation */
 .loading-spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   animation: spin 1s linear infinite;
 }
 
 @media (max-width: 768px) {
   .loading-spinner {
-    width: 30px;
-    height: 30px;
-    border-width: 3px;
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
   }
 }
 
@@ -106,4 +106,18 @@
 
 .float-animation:nth-child(4) {
   animation-delay: 1.5s;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .hero-bg {
+    background-attachment: scroll;
+  }
+  
+  /* Reduce motion for better mobile performance */
+  @media (prefers-reduced-motion: reduce) {
+    .float-animation {
+      animation: none;
+    }
+  }
 }

@@ -242,9 +242,9 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 mb-6 lg:mb-8 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 lg:gap-4 mb-6 lg:mb-8 justify-center lg:justify-start"
               >
-                <Link to="/semesters" className="group relative overflow-hidden bg-white text-blue-600 font-bold py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center">
+                <Link to="/semesters" className="group relative overflow-hidden bg-white text-blue-600 font-bold py-3 px-4 sm:px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-center text-sm sm:text-base">
                   <span className="relative z-10 flex items-center justify-center">
                     Explore Materials
                     <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -255,7 +255,7 @@ const Home = () => {
                   href="https://play.google.com/store/apps/details?id=com.materialbase.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20"
+                  className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-4 sm:px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 text-sm sm:text-base"
                 >
                   <Play className="w-4 h-4 lg:w-5 lg:h-5" />
                   <span>Download App</span>
@@ -268,17 +268,17 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4"
+                className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4"
               >
                 {stats.map((stat, index) => {
                   const Icon = stat.icon
                   return (
-                    <div key={index} className="text-center">
+                    <div key={index} className="text-center px-2">
                       <div className="flex items-center justify-center mb-1 lg:mb-2">
                         <Icon className={`w-4 h-4 lg:w-5 lg:h-5 ${stat.color} mr-1`} />
-                        <span className="text-lg lg:text-2xl font-bold">{stat.value}</span>
+                        <span className="text-base sm:text-lg lg:text-2xl font-bold">{stat.value}</span>
                       </div>
-                      <p className="text-xs lg:text-sm text-blue-200">{stat.label}</p>
+                      <p className="text-xs lg:text-sm text-blue-200 leading-tight">{stat.label}</p>
                     </div>
                   )
                 })}
@@ -304,7 +304,7 @@ const Home = () => {
                   }}
                   className="bg-white/10 backdrop-blur-lg rounded-3xl p-4 lg:p-8 shadow-2xl border border-white/20"
                 >
-                  <div className="grid grid-cols-2 gap-3 lg:gap-6">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-6">
                     {heroFeatures.map((item, index) => {
                       const Icon = item.icon
                       return (
@@ -324,13 +324,13 @@ const Home = () => {
                               delay: index * 0.5,
                               ease: "easeInOut"
                             }}
-                            className="bg-white/20 rounded-2xl p-3 lg:p-6 text-center hover:bg-white/30 transition-colors duration-300 group-hover:scale-105"
+                            className="bg-white/20 rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-6 text-center hover:bg-white/30 transition-colors duration-300 group-hover:scale-105"
                           >
-                            <div className={`w-8 h-8 lg:w-12 lg:h-12 ${item.color} rounded-xl flex items-center justify-center mx-auto mb-2 lg:mb-3`}>
+                            <div className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 ${item.color} rounded-lg lg:rounded-xl flex items-center justify-center mx-auto mb-1 sm:mb-2 lg:mb-3`}>
                               <Icon className="w-4 h-4 lg:w-6 lg:h-6 text-white" />
                             </div>
-                            <p className="text-white font-medium text-xs lg:text-sm">{item.title}</p>
-                            <p className="text-white/70 text-xs mt-1">{item.count}</p>
+                            <p className="text-white font-medium text-xs sm:text-sm lg:text-base leading-tight">{item.title}</p>
+                            <p className="text-white/70 text-xs mt-0.5 lg:mt-1">{item.count}</p>
                           </motion.div>
                         </Link>
                       )
@@ -384,12 +384,12 @@ const Home = () => {
             className="text-center mb-12 lg:mb-16"
           >
             <div className="flex items-center justify-center space-x-3 mb-4 lg:mb-6">
-              <Calculator className="w-6 h-6 lg:w-8 lg:h-8 text-purple-600" />
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white">
+              <Calculator className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-purple-600" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white">
                 Smart Academic Calculators
               </h2>
             </div>
-            <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Powerful tools to track your academic progress and plan your semester strategy
             </p>
           </motion.div>
@@ -479,10 +479,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 lg:mb-16"
           >
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white mb-4 lg:mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 dark:text-white mb-4 lg:mb-6">
               Complete Study Resources
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Everything you need for academic success, organized and easily accessible
             </p>
           </motion.div>
@@ -629,12 +629,12 @@ const Home = () => {
             >
               <div className="flex items-center justify-center lg:justify-start space-x-3 mb-4 lg:mb-6">
                 <Smartphone className="w-6 h-6 lg:w-8 lg:h-8 text-yellow-400" />
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold">
                   Get the Mobile App
                 </h2>
               </div>
               
-              <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 leading-relaxed">
                 Take Material Base with you everywhere! Access all features on your mobile device 
                 with our beautifully designed app.
               </p>
@@ -813,19 +813,19 @@ const Home = () => {
           >
             <div className="flex items-center justify-center space-x-3 mb-4 lg:mb-6">
               <Gift className="w-6 h-6 lg:w-8 lg:h-8 text-yellow-400" />
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white text-center">
                 Ready to Excel in Your Studies?
               </h2>
             </div>
             
-            <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">
               Join thousands of SASTRA students who are already using Material Base to achieve academic success
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/semesters" 
-                className="group relative overflow-hidden bg-white text-blue-600 font-bold py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                className="group relative overflow-hidden bg-white text-blue-600 font-bold py-3 px-4 sm:px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-sm sm:text-base"
               >
                 <span className="relative z-10 flex items-center justify-center">
                   Start Exploring
@@ -837,7 +837,7 @@ const Home = () => {
                 href="https://play.google.com/store/apps/details?id=com.materialbase.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-2"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-4 sm:px-6 lg:py-4 lg:px-8 rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 flex items-center justify-center space-x-2 text-sm sm:text-base"
               >
                 <Play className="w-4 h-4 lg:w-5 lg:h-5" />
                 <span>Get Mobile App</span>
@@ -854,16 +854,16 @@ const Home = () => {
               className="mt-8 lg:mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-blue-200"
             >
               <div className="flex items-center space-x-2">
-                <Shield className="w-4 h-4 lg:w-5 lg:h-5" />
-                <span className="text-sm lg:text-base">Secure & Safe</span>
+                <Shield className="w-4 h-4" />
+                <span className="text-sm">Secure & Safe</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Heart className="w-4 h-4 lg:w-5 lg:h-5 text-red-400" />
-                <span className="text-sm lg:text-base">Made with Love</span>
+                <Heart className="w-4 h-4 text-red-400" />
+                <span className="text-sm">Made with Love</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="w-4 h-4 lg:w-5 lg:h-5 text-green-400" />
-                <span className="text-sm lg:text-base">Student Community</span>
+                <Users className="w-4 h-4 text-green-400" />
+                <span className="text-sm">Student Community</span>
               </div>
             </motion.div>
           </motion.div>
