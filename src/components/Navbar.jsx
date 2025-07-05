@@ -63,7 +63,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => {
               const Icon = item.icon
               return (
@@ -152,7 +152,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2">
             {/* Mobile Theme Toggle */}
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -193,7 +193,7 @@ const Navbar = () => {
         <motion.div
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0 }}
-          className="md:hidden overflow-hidden"
+          className="lg:hidden overflow-hidden"
         >
           <div className="py-4 space-y-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 border dark:border-gray-700">
             {navItems.map((item) => {
