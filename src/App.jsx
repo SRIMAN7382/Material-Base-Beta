@@ -14,6 +14,7 @@ import CGPACalculator from './pages/CGPACalculator'
 import ExternalMarksCalculator from './pages/ExternalMarksCalculator'
 import AttendanceCalculator from './pages/AttendanceCalculator'
 import Login from './pages/Login'
+import ContributeMaterials from './pages/ContributeMaterials'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import TermsModal from './components/TermsModal'
@@ -101,6 +102,11 @@ function App() {
               <Route path="/attendance-calculator" element={
                 <ProtectedRoute>
                   <AttendanceCalculator />
+                </ProtectedRoute>
+              } />
+              <Route path="/contribute" element={
+                <ProtectedRoute>
+                  <ContributeMaterials />
                 </ProtectedRoute>
               } />
             </Routes>

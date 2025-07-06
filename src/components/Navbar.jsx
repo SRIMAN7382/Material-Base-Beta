@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap, UserCheck } from 'lucide-react'
+import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap, UserCheck, Upload } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useAuth } from '../contexts/AuthContext'
 import UserProfile from './UserProfile'
@@ -26,6 +26,7 @@ const Navbar = () => {
     { name: 'Materials', path: '/semesters', icon: FileText },
     { name: 'Calendar', path: '/calendar', icon: Calendar },
     { name: 'Papers', path: '/papers', icon: FileText },
+    { name: 'Contribute', path: '/contribute', icon: Upload },
   ]
 
   const calculatorItems = [
