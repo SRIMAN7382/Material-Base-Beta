@@ -1,27 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Upload, 
-  FileText, 
-  User, 
-  Calendar, 
-  Hash, 
-  BookOpen, 
-  Send, 
-  CheckCircle, 
-  AlertCircle,
-  X,
-  Plus,
-  Trash2,
-  CloudUpload,
-  Sparkles,
-  Award,
-  Users,
-  Target,
-  Zap,
-  Shield,
-  Heart
-} from 'lucide-react'
+import { Upload, FileText, User, Calendar, Hash, BookOpen, Send, CheckCircle, AlertCircle, X, Plus, Trash2, UploadCloud as CloudUpload, Sparkles, Award, Users, Target, Zap, Shield, Heart } from 'lucide-react'
 
 const ContributeMaterials = () => {
   const [formData, setFormData] = useState({
