@@ -108,29 +108,27 @@ const Navbar = () => {
                 {utilityItems.map((item) => {
                   const Icon = item.icon
                   const isExternal = item.url
-                  return (
-                    {isExternal ? (
-                      <a
-                        key={item.name}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
-                      >
-                        <Icon className="w-4 h-4" />
-                        <span>{item.name}</span>
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.name}
-                        to={item.path}
-                        className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
-                      >
-                        <Icon className="w-4 h-4" />
-                        <span>{item.name}</span>
-                      </Link>
-                    )}
-                  </>
+                  return isExternal ? (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </Link>
+                  )
                 })}
               </div>
             </div>
@@ -159,19 +157,6 @@ const Navbar = () => {
                   <Users className="w-4 h-4" />
                   <span>Hall Plan</span>
                 </a>
-              </div>
-            </div>
-                      key={item.name}
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
-                    >
-                      <Icon className="w-4 h-4" />
-                      <span>{item.name}</span>
-                    </a>
-                  )
-                })}
               </div>
             </div>
 
@@ -304,29 +289,6 @@ const Navbar = () => {
                 <Users className="w-4 h-4" />
                 <span>Hall Plan</span>
               </a>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </motion.nav>
-  )
-}
-
-export default Navbar
-                const Icon = item.icon
-                return (
-                  <a
-                    key={item.name}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200"
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span>{item.name}</span>
-                  </a>
-                )
-              })}
             </div>
           </div>
         </motion.div>
