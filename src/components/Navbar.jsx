@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap, UserCheck, Upload } from 'lucide-react'
+import { Menu, X, BookOpen, Calendar, FileText, Calculator, Users, Moon, Sun, Target, Zap, UserCheck, Upload, ChevronDown } from 'lucide-react'
 import { useTheme } from '../contexts/ThemeContext'
 import { useAuth } from '../contexts/AuthContext'
 import UserProfile from './UserProfile'
@@ -26,7 +26,6 @@ const Navbar = () => {
     { name: 'Materials', path: '/semesters', icon: FileText },
     { name: 'Calendar', path: '/calendar', icon: Calendar },
     { name: 'Papers', path: '/papers', icon: FileText },
-    { name: 'Contribute', path: '/contribute', icon: Upload },
   ]
 
   const calculatorItems = [
@@ -38,6 +37,7 @@ const Navbar = () => {
 
   const utilityItems = [
     { name: 'Hall Plan', url: 'https://sas.sastra.edu/hallplan/', icon: Users },
+    { name: 'Contribute Materials', path: '/contribute', icon: Upload },
   ]
 
   return (
@@ -88,6 +88,7 @@ const Navbar = () => {
               <button className="flex items-center space-x-1 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200">
                 <Calculator className="w-4 h-4" />
                 <span>Calculators</span>
+                <ChevronDown className="w-3 h-3 ml-1 group-hover:rotate-180 transition-transform duration-200" />
               </button>
               <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 {calculatorItems.map((item) => {
@@ -106,8 +107,60 @@ const Navbar = () => {
                 <div className="border-t dark:border-gray-700 my-1"></div>
                 {utilityItems.map((item) => {
                   const Icon = item.icon
+                  const isExternal = item.url
                   return (
-                    <a
+                    {isExternal ? (
+                      <a
+                        key={item.name}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
+                      >
+                        <Icon className="w-4 h-4" />
+                        <span>{item.name}</span>
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
+                      >
+                        <Icon className="w-4 h-4" />
+                        <span>{item.name}</span>
+                      </Link>
+                    )}
+                  </>
+                })}
+              </div>
+            </div>
+
+            {/* More Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center space-x-1 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200">
+                <Users className="w-4 h-4" />
+                <span>More</span>
+                <ChevronDown className="w-3 h-3 ml-1 group-hover:rotate-180 transition-transform duration-200" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link
+                  to="/contribute"
+                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-t-lg transition-colors duration-200"
+                >
+                  <Upload className="w-4 h-4" />
+                  <span>Contribute Materials</span>
+                </Link>
+                <a
+                  href="https://sas.sastra.edu/hallplan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 last:rounded-b-lg transition-colors duration-200"
+                >
+                  <Users className="w-4 h-4" />
+                  <span>Hall Plan</span>
+                </a>
+              </div>
+            </div>
                       key={item.name}
                       href={item.url}
                       target="_blank"
@@ -233,8 +286,33 @@ const Navbar = () => {
                 )
               })}
               
-              <p className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">Utilities</p>
-              {utilityItems.map((item) => {
+              <p className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 mt-2">More</p>
+              <Link
+                to="/contribute"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center space-x-2 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200"
+              >
+                <Upload className="w-4 h-4" />
+                <span>Contribute Materials</span>
+              </Link>
+              <a
+                href="https://sas.sastra.edu/hallplan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200"
+              >
+                <Users className="w-4 h-4" />
+                <span>Hall Plan</span>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.nav>
+  )
+}
+
+export default Navbar
                 const Icon = item.icon
                 return (
                   <a
